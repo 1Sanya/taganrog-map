@@ -1,8 +1,8 @@
 import React from "react";
-import s from "./index.module.scss";
+import s from "./App.module.scss";
 
-const app = () => {
-  return <div className={s.App}>a</div>;
+const App: React.FC = () => {
+  return <div className={s.App}></div>;
 };
 
-export default app;
+export default App;
