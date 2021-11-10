@@ -1,8 +1,18 @@
 import React from "react";
-import s from "./App.module.scss";
+import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Search from "./pages/Search/Search";
+import Home from "./pages/Home/Home";
 
 const App: React.FC = () => {
-  return <div className={s.App}></div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/search" element={<Search />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
