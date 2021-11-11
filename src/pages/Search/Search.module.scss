@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+}
+
+.input {
+  margin: 0 auto;
+  padding-bottom: 10px;
+  width: 80%;
+  height: 40px;
+
+  border: 0;
+  border-bottom: 1px solid #7f7f7f;
+  background-color: #000;
+
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'PT Serif', serif;
+
+  &::placeholder {
+    color: #333;
+  }
+
+  @media (min-width: 996px) {
+  font-size: 36px;
+}
+
+  @media (min-width: 1200px) {
+    font-size: 40px;
+    padding-bottom: 20px;
+    width: 70%;
+  }
+}
+
+
+
