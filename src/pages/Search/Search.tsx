@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import s from "./Search.module.scss";
 import SearchNav from "./Nav/SearchNav";
 
