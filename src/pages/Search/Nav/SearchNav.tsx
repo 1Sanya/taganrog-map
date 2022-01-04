@@ -1,16 +1,18 @@
-import React from "react";
-import { CgClose } from "react-icons/all";
+import React, { memo } from "react";
 import s from "./Nav.module.scss";
 import { Link } from "react-router-dom";
+import CloseIcon from "../../../Components/svgComponents/CloseIcon";
 
-const SearchNav = () => {
+const SearchNav = memo(() => {
   return (
     <div className={s.wrapper}>
       <Link className={s.linkToSearch} to="/">
-        <CgClose className={s.closeIcon} />
+        <CloseIcon />
       </Link>
     </div>
   );
-};
+});
+
+SearchNav.displayName = "SearchNav";
 
 export default SearchNav;

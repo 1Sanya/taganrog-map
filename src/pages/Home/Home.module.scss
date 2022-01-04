@@ -1,9 +1,208 @@
+.wrapper {
+  overflow: hidden;
+}
+
+.mainWrapper {
+  position: relative;
+  margin-bottom: 50px;
+
+  display: flex;
+  height: 85vh;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    height: 105vh;
+  }
+  @media (min-width: 1200px) {
+    height: 120vh;
+  }
+}
+
 .video {
   width: 100%;
-  height: 100vh;
+  height: 85vh;
+  z-index: -1;
   object-fit: cover;
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
-  z-index: -1;
+
+  @media (min-width: 768px) {
+    height: 92vh;
+  }
+
+  @media (min-width: 1200px) {
+    height: 120vh;
+  }
+}
+
+.titlesWrapper {
+  padding-left: 2vw;
+
+  @media (min-width: 768px) {
+    padding-left: 4vw;
+  }
+  @media (min-width: 1200px) {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    margin-top: 240px;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.title {
+  margin-top: 90px;
+  height: fit-content;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1;
+
+  @media (min-width: 600px) {
+    font-size: 80px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 120px;
+    margin: 10px 50px 0 0;
+  }
+
+  @media (min-width: 1400px) {
+    margin-right: 50px;
+  }
+}
+
+.subtitle {
+  margin-top: 22px;
+  height: fit-content;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+
+  @media (min-width: 600px) {
+    font-size: 4.5vw;
+    margin-top: 30px;
+  }
+
+  @media (min-width: 1200px) {
+    margin-top: 35px;
+    font-size: 3.3vw;
+  }
+}
+
+.albumCategory {
+  width: 100%;
+  padding: 40px 0 10px 0;
+  color: gray;
+  font-size: 80px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.arrow {
+  display: none;
+  @media (min-width: 1000px) {
+    display: block;
+    position: absolute;
+    bottom: 35vh;
+    right: 0;
+    transform: rotate(-90deg);
+
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Exo 2', sans-serif;
+
+    animation: arrow 0.8s linear infinite alternate;
+
+    @media (min-width: 1600px) {
+      right: 8vw;
+    }
+  }
+
+  &:before {
+    border: 4px solid;
+    position: absolute;
+    left: -30px;
+
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-color: transparent transparent #fff #fff;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes arrow  {
+  0% {
+    transform: translateY(0) rotate(-90deg);
+  }
+  100% {
+    transform: translateY(100%) rotate(-90deg);
+  }
+}
+
+.museumWrapper {
+  margin-left: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.runningStringWrapper {
+  overflow: hidden;
+  align-self: end;
+  width: 100vw;
+  height: fit-content;
+  position: absolute;
+
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    background-color: black;
+    height: 150px;
+  }
+  @media (min-width: 1200px) {
+  height: 230px;
+}
+}
+
+.runningString {
+  padding-bottom: 5px;
+  height: fit-content;
+  width: 3340px;
+
+  white-space: nowrap;
+  font-size: 8vw;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+
+  animation: runningWord 10s linear infinite normal;
+  
+  @media (min-width: 1200px) {
+    -webkit-text-stroke: 1.5px #fff;
+  }
+}
+
+
+@keyframes runningWord {
+  0% {
+    transform: translateX(-16%);
+  }
+
+  100% {
+    transform: translateX(-65%);
+  }
+}
+
+.museumAvatar {
+  width: 180px;
+  height: 180px;
 }

@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import { photosReducer } from "./photosReducer";
+import { albumsReducer } from "./albumsReducer";
+import homeReducer from "./homeReducer";
 
-export const rootReducer = combineReducers({ photosReducer });
+export const rootReducer = combineReducers({ albumsReducer, homeReducer });
 
 export type RootStateT = ReturnType<typeof rootReducer>;
+// export const store = createStore(rootReducer, applyMiddleware(thunk));

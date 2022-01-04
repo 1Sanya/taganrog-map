@@ -1,0 +1,37 @@
+.wrapper {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  margin-bottom: 8vh;
+  font-family: 'PT Serif', serif;
+  font-size: 32px;
+  color: transparent;
+  mix-blend-mode: difference;
+  animation: name 5s linear infinite;
+}
+
+@keyframes name {
+  0% {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+  20% {
+    color: #fff;
+  }
+  50% {
+    color: #fff;
+  }
+  80% {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+  100% {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+}
