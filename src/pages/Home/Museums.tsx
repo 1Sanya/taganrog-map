@@ -1,13 +1,13 @@
 import React from "react";
-import Museum from "./Museum";
 import s from "./Home.module.scss";
+import Museum from "./Museum";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
-const Museums = () => {
+const Albums = () => {
   const { museums } = useTypedSelector((state) => state.albumsReducer);
   return (
     <>
-      <div className={s.albumCategory}>МУЗЕИ</div>
+      <div className={s.albumCategory}>Музеи</div>
       <div className={s.museumWrapper}>
         {museums.map((museum) => (
           <Museum
@@ -15,10 +15,10 @@ const Museums = () => {
             displayName={museum.displayName}
             name={museum.name}
             mapsLink={museum.mapsLink}
-            museumOnlineLink={museum.museumOnlineLink}
+            museumOnlineLink=""
             key={museum.name}
-            color={museum.color}
-            isWide={true}
+            color="hsl(23,68%,71%)"
+            isWide={museum.isWide}
           />
         ))}
       </div>
@@ -26,4 +26,4 @@ const Museums = () => {
   );
 };
 
-export default Museums;
+export default Albums;

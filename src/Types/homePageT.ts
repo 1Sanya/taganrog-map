@@ -5,6 +5,8 @@ export enum homeAT {
   FETCH_MAIN_VIDEO_START = "FETCH_MAIN_VIDEO_START",
   FETCH_MAIN_VIDEO_SUCCESS = "FETCH_MAIN_VIDEO_SUCCESS",
   FETCH_MAIN_VIDEO_ERROR = "FETCH_MAIN_VIDEO_ERROR",
+  FETCH_MAIN_PHOTOS_START = "FETCH_MAIN_PHOTOS_START",
+  FETCH_MAIN_PHOTOS_SUCCESS = "FETCH_MAIN_PHOTOS_SUCCESS",
 }
 
 export type homeACT =
@@ -13,7 +15,9 @@ export type homeACT =
   | fetchMusicErrorACT
   | fetchMainVideoStartACT
   | fetchMainVideoSuccessACT
-  | fetchMainVideoErrorACT;
+  | fetchMainVideoErrorACT
+  | fetchMainPhotosStartACT
+  | fetchMainPhotosSuccessACT;
 
 export interface fetchMusicStartACT {
   type: homeAT.FETCH_MUSIC_START;
@@ -39,4 +43,13 @@ export interface fetchMainVideoSuccessACT {
 
 export interface fetchMainVideoErrorACT {
   type: homeAT.FETCH_MAIN_VIDEO_ERROR;
+}
+
+export interface fetchMainPhotosStartACT {
+  type: homeAT.FETCH_MAIN_PHOTOS_START;
+}
+
+export interface fetchMainPhotosSuccessACT {
+  type: homeAT.FETCH_MAIN_PHOTOS_SUCCESS;
+  photos: Array<string>;
 }

@@ -13,11 +13,21 @@ const initialState = {
   music: null,
   musicLoading: false,
   photos: [],
+  photosIsLoading: false,
   bgVideo: null,
   videoLoading: false,
 };
 
-const homeReducer = (state = initialState, action: homeACT) => {
+interface InitialState {
+  music: null | string;
+  musicLoading: boolean;
+  photos: Array<string>;
+  photosIsLoading: boolean;
+  bgVideo: null | string;
+  videoLoading: boolean;
+}
+
+const homeReducer = (state = initialState, action: homeACT): InitialState => {
   switch (action.type) {
     case homeAT.FETCH_MAIN_VIDEO_START:
       return {
@@ -37,8 +47,19 @@ const homeReducer = (state = initialState, action: homeACT) => {
     case homeAT.FETCH_MUSIC_SUCCESS:
       return {
         ...state,
-        loading: false,
+        musicLoading: false,
         music: action.music,
+      };
+    case homeAT.FETCH_MAIN_PHOTOS_START:
+      return {
+        ...state,
+        photosIsLoading: true,
+      };
+    case homeAT.FETCH_MAIN_PHOTOS_SUCCESS:
+      return {
+        ...state,
+        photosIsLoading: false,
+        photos: action.photos,
       };
     default:
       return state;

@@ -5,6 +5,7 @@ import HomeNav from "./HomeNav/HomeNav";
 
 const MuseumsLazy = lazy(() => import("./Museums"));
 const AlbumsLazy = lazy(() => import("./Albums"));
+const OtherPhotosLazy = lazy(() => import("./OtherPhotos/index"));
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <AboutVideo />
       <MuseumsLazy />
       <AlbumsLazy />
+      <OtherPhotosLazy />
     </div>
   );
 };

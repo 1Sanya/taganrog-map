@@ -1,4 +1,4 @@
-import React, { FC, Suspense, useEffect } from "react";
+import React, { createRef, FC, Suspense, useEffect } from "react";
 import { albumsPageT } from "../../Types/albumsPageT";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
@@ -15,7 +15,17 @@ const Album: FC<albumsPageT> = (props) => {
   const { fetchAlbumAC } = useActions();
 
   const selectedAlbum = museums.filter((album) => album.name === name);
-  const { displayName, mapsLink } = selectedAlbum[0];
+  const { displayName, mapsLink, museumOnlineLink } = selectedAlbum[0];
+
+  const ref = createRef<HTMLInputElement>();
+
+  const scrollAlbum = (e: { deltaY: number }) => {
+    if (ref.current) {
+      ref.current.scrollTo({
+        left: ref.current.scrollLeft + e.deltaY,
+      });
+    }
+  };
 
   useEffect(() => {
     fetchAlbumAC(name);
@@ -29,31 +39,28 @@ const Album: FC<albumsPageT> = (props) => {
     );
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className={s.wrapper}>
-        <div className={s.header}>
-          <Link to={"/"}>
-            <button className={s.arrowIcon}>
-              <ArrowLeftIcon />
-            </button>
-          </Link>
+    <div onWheel={scrollAlbum} ref={ref} className={s.wrapper}>
+      <div className={s.header}>
+        <Link to={"/"}>
+          <button className={s.arrowIcon}>
+            <ArrowLeftIcon />
+          </button>
+        </Link>
+        <div>
           <a target="_blank" href={mapsLink} rel="noreferrer">
-            <button className={s.mapIcon}>
-              {/* <MapIcon />*/}
-              На карте
-            </button>
+            <button className={s.mapIcon}>На карте</button>
           </a>
         </div>
-        <div className={s.galleryWrapper}>
-          {currentAlbum.map((img) => (
-            <img className={s.img} src={img} key={img} alt="" />
-          ))}
-        </div>
-        <div className={s.nameWrapper}>
-          <div className={s.name}>{displayName}</div>
-        </div>
       </div>
-    </Suspense>
+      <div className={s.photosWrapper}>
+        {currentAlbum.map((img) => (
+          <img className={s.img} src={img} key={img} alt="" />
+        ))}
+      </div>
+      <div className={s.nameWrapper}>
+        <div className={s.name}>{displayName}</div>
+      </div>
+    </div>
   );
 };
 

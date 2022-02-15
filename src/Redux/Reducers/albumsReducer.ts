@@ -118,14 +118,6 @@ export const initialState: albumsReducerT = {
       mapsLink: "https://yandex.ru/maps/-/CCUuiCGLGB",
       isWide: true,
     },
-
-    {
-      displayName: "Парк Горького",
-      name: "park-gorkogo",
-      avatar: gorkogo1,
-      mapsLink: "https://yandex.ru/maps/-/CCUuiCCS8C",
-      isWide: true,
-    },
     {
       displayName: "Переулок Красный",
       name: "krasniy",
@@ -133,21 +125,6 @@ export const initialState: albumsReducerT = {
       mapsLink: "https://yandex.ru/maps/-/CCUuiCG8hB",
       isWide: true,
     },
-    {
-      displayName: "Двор с брусчаткой",
-      name: "stone-road-1",
-      avatar: stoneRoad1,
-      mapsLink: "https://yandex.ru/maps/-/CCUuiCSZpC",
-      isWide: false,
-    },
-    {
-      displayName: "Двор с брусчаткой 2",
-      name: "stone-road-2",
-      avatar: stoneRoad11,
-      mapsLink: "https://yandex.ru/maps/-/CCUuiCSNWB",
-      isWide: false,
-    },
-
     {
       displayName: "Переулок Итальянский",
       name: "italyanskiy",
