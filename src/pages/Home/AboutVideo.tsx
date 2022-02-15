@@ -1,8 +1,28 @@
 import React, { FC, useEffect } from "react";
+import { Grid } from "@material-ui/core";
 import s from "./Home.module.scss";
-import blackBg from "./../../assets/photo/black.jpg";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import ReactPlayer from "react-player/lazy";
+import styled from "styled-components";
+
+const StyledGrid = styled(Grid)`
+  height: 85vh;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  @media (min-width: 768px) {
+    height: 92vh;
+  }
+
+  @media (min-width: 1200px) {
+    height: 110vh;
+  }
+`;
 
 const AboutVideo: FC = () => {
   const { bgVideo } = useTypedSelector((state) => state.homeReducer);
@@ -14,10 +34,24 @@ const AboutVideo: FC = () => {
 
   return (
     <>
-      <video className={s.video} poster={blackBg} autoPlay loop muted>
+      <video className={s.video} poster={bgVideo} controls={true} autoPlay playsInline loop muted>
         {bgVideo && <source src={bgVideo} />}
       </video>
+
       <div className={s.mainWrapper}>
+        {/* <ReactPlayer*/}
+        {/*  style={{*/}
+        {/*    position: "absolute",*/}
+        {/*    top: 0,*/}
+        {/*    left: 0,*/}
+        {/*  }}*/}
+        {/*  url={bgVideo}*/}
+        {/*  playing={true}*/}
+        {/*  muted*/}
+        {/*  loop*/}
+        {/*  width="100%"*/}
+        {/*  height="100%"*/}
+        {/* />*/}
         <div className={s.titlesWrapper}>
           <div className={s.title}>
             Красоты
