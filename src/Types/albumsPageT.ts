@@ -11,6 +11,7 @@ export interface albumsT {
   displayName: string;
   avatar: string;
   isWide: boolean;
+  color?: string;
   mapsLink: string;
 }
 

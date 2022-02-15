@@ -6,15 +6,12 @@ import chehovsHouse1 from "../../assets/photo/chehov/1.png";
 import chehovShop1 from "../../assets/photo/chekhovshop/1.jpg";
 import cvr1 from "../../assets/photo/cvr/1.jpg";
 import embankment1 from "../../assets/photo/embankment/1.jpg";
-import gorkogo1 from "../../assets/photo/gorkogo/1.jpg";
 import bytaMuseum1 from "../../assets/photo/gradstroy/1.jpg";
 import graveyard1 from "../../assets/photo/graveyard/1.jpg";
 import krasniy1 from "../../assets/photo/krasniy/1.jpg";
 import round1 from "../../assets/photo/round/1.jpg";
 import shmidta1 from "../../assets/photo/shmidta/1.jpg";
 import shopingRows1 from "../../assets/photo/shoppingrows/1.jpg";
-import stoneRoad1 from "../../assets/photo/stoneRoad/1.jpg";
-import stoneRoad11 from "../../assets/photo/stoneRoad1/1.jpg";
 import balcony from "../../assets/photo/balcony/1.jpg";
 import voda from "../../assets/photo/vodo/1.jpg";
 import italyanskiy from "../../assets/photo/italyanskiy/ava.jpg";
@@ -40,7 +37,7 @@ export const initialState: albumsReducerT = {
       avatar: bytaMuseum1,
       mapsLink: "https://yandex.ru/maps/-/CCUue-FtOB",
       museumOnlineLink: "https://www.tgliamz.ru/online-museum/Taganrod-gradostroitelstvo/",
-      color: "hsl(23,68%,71%)",
+      color: "#9A5150",
       isWide: true,
     },
     {
@@ -50,7 +47,7 @@ export const initialState: albumsReducerT = {
       mapsLink:
         "https://yandex.ru/maps/org/domik_chekhova/1186079693/?ll=38.905125%2C47.222697&mode=search&sll=38.917300%2C47.220983&sspn=0.246506%2C0.098706&text=%D0%BC%D1%83%D0%B7%D0%B5%D0%B9&z=14",
       museumOnlineLink: "https://www.tgliamz.ru/online-museum/Taganrog-domik/",
-      color: "hsl(121,68%,60%)",
+      color: "rgb(193,220,60)",
       isWide: true,
     },
     {
@@ -59,7 +56,7 @@ export const initialState: albumsReducerT = {
       avatar: chehovShop1,
       mapsLink: "https://yandex.ru/maps/-/CCUue-VNKB",
       museumOnlineLink: "https://www.tgliamz.ru/online-museum/Taganrog-lavka/",
-      color: "hsl(23,68%,71%)",
+      color: "#D27B62",
       isWide: true,
     },
     {
@@ -69,7 +66,7 @@ export const initialState: albumsReducerT = {
       mapsLink:
         "https://yandex.ru/maps/org/taganrogskiy_khudozhestvenny_muzey/1067987948/?display-text=%D0%BC%D1%83%D0%B7%D0%B5%D0%B9&ll=38.905125%2C47.222697&mode=search&sll=38.905125%2C47.222697&sspn=0.123253%2C0.049351&text=%D0%BC%D1%83%D0%B7%D0%B5%D0%B9&z=14",
       museumOnlineLink: "http://www.artmuseumtgn.ru/pan_3d/tour.html",
-      color: "hsl(0,76%,62%)",
+      color: "rgb(175, 171, 163)",
       isWide: true,
     },
   ],
@@ -87,6 +84,7 @@ export const initialState: albumsReducerT = {
       avatar: bogudonia1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCCjXB",
       isWide: false,
+      color: "#8696A4",
     },
     {
       displayName: "Переулок Шмидта",
@@ -94,6 +92,7 @@ export const initialState: albumsReducerT = {
       avatar: shmidta1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCGtkD",
       isWide: false,
+      color: "#376e8d",
     },
     {
       displayName: "Старое кладбище",
@@ -101,6 +100,7 @@ export const initialState: albumsReducerT = {
       avatar: graveyard1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCGGlA",
       isWide: false,
+      color: "rgb(126, 101, 76)",
     },
 
     {
@@ -110,6 +110,7 @@ export const initialState: albumsReducerT = {
       mapsLink:
         "https://yandex.ru/maps/org/dvorets_n_d_alferaki/41237525313/?ll=38.926696%2C47.212990&mode=search&sll=38.905125%2C47.222697&sspn=0.123253%2C0.049351&text=%D0%B0%D0%BB%D1%84%D0%B5%D1%80%D0%B0%D0%BA%D0%B8&z=17",
       isWide: false,
+      color: "rgb(211, 64, 22)",
     },
     {
       displayName: "Круглый дом",
@@ -117,6 +118,7 @@ export const initialState: albumsReducerT = {
       avatar: round1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCGLGB",
       isWide: true,
+      color: "rgb(228, 196, 60)",
     },
     {
       displayName: "Переулок Красный",
@@ -124,6 +126,7 @@ export const initialState: albumsReducerT = {
       avatar: krasniy1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCG8hB",
       isWide: true,
+      color: "rgb(139, 158, 188)",
     },
     {
       displayName: "Переулок Итальянский",
@@ -131,6 +134,7 @@ export const initialState: albumsReducerT = {
       avatar: italyanskiy,
       mapsLink: "https://yandex.ru/maps/-/CCUurXBSoC",
       isWide: false,
+      color: "#376e8d",
     },
     {
       displayName: "Набережная",
@@ -138,6 +142,7 @@ export const initialState: albumsReducerT = {
       avatar: embankment1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCC7-B",
       isWide: false,
+      color: "rgb(166, 147, 136)",
     },
     {
       displayName: "Водолечебница",
@@ -145,6 +150,7 @@ export const initialState: albumsReducerT = {
       avatar: voda,
       mapsLink: "https://yandex.ru/maps/-/CCUurXBkGD",
       isWide: true,
+      color: "rgb(4, 11, 11)",
     },
     {
       displayName: "Дом пионеров",
@@ -152,6 +158,7 @@ export const initialState: albumsReducerT = {
       avatar: cvr1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCSIcA",
       isWide: false,
+      color: "rgb(4, 188, 116)",
     },
     {
       displayName: "Европейский квартал",
@@ -159,6 +166,7 @@ export const initialState: albumsReducerT = {
       avatar: europe,
       mapsLink: "https://yandex.ru/maps/-/CCUyIHAvHB",
       isWide: false,
+      color: "rgb(250, 224, 79)",
     },
     {
       displayName: "Торговые ряды",
@@ -166,6 +174,7 @@ export const initialState: albumsReducerT = {
       avatar: shopingRows1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCSIcA",
       isWide: true,
+      color: "rgb(50, 38, 125)",
     },
   ],
 };

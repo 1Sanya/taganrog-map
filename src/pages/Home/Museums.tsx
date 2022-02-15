@@ -17,7 +17,7 @@ const Albums = () => {
             mapsLink={museum.mapsLink}
             museumOnlineLink=""
             key={museum.name}
-            color="hsl(23,68%,71%)"
+            color={museum.color ?? "hsl(23,68%,71%)"}
             isWide={museum.isWide}
           />
         ))}
