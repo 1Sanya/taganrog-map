@@ -18,6 +18,7 @@ const Albums = () => {
             museumOnlineLink=""
             key={museum.name}
             color={museum.color ?? "hsl(23,68%,71%)"}
+            textColor={museum.textColor ?? "#ffffff"}
             isWide={museum.isWide}
           />
         ))}

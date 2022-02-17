@@ -34,7 +34,8 @@ const AboutVideo: FC = () => {
 
   return (
     <>
-      <video className={s.video} poster={bgVideo} controls={true} autoPlay playsInline loop muted>
+      {/* <video className={s.video} poster={bgVideo} controls={true} autoPlay playsInline loop muted>*/}
+      <video className={s.video} poster={bgVideo} autoPlay playsInline loop muted>
         {bgVideo && <source src={bgVideo} />}
       </video>
 

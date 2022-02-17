@@ -13,6 +13,7 @@ export interface albumsT {
   isWide: boolean;
   color?: string;
   mapsLink: string;
+  textColor?: string;
 }
 
 export interface museumsT {
@@ -23,6 +24,7 @@ export interface museumsT {
   mapsLink: string;
   color?: string;
   isWide: boolean;
+  textColor?: string;
 }
 
 export interface albumsPageT {

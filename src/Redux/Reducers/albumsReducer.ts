@@ -110,7 +110,8 @@ export const initialState: albumsReducerT = {
       mapsLink:
         "https://yandex.ru/maps/org/dvorets_n_d_alferaki/41237525313/?ll=38.926696%2C47.212990&mode=search&sll=38.905125%2C47.222697&sspn=0.123253%2C0.049351&text=%D0%B0%D0%BB%D1%84%D0%B5%D1%80%D0%B0%D0%BA%D0%B8&z=17",
       isWide: false,
-      color: "rgb(211, 64, 22)",
+      color: "rgb(252, 236, 236)",
+      textColor: "#000000",
     },
     {
       displayName: "Круглый дом",
@@ -126,7 +127,9 @@ export const initialState: albumsReducerT = {
       avatar: krasniy1,
       mapsLink: "https://yandex.ru/maps/-/CCUuiCG8hB",
       isWide: true,
-      color: "rgb(139, 158, 188)",
+      // color: "rgb(139, 158, 188)",
+      color: "rgb(252, 236, 236)",
+      textColor: "#000000",
     },
     {
       displayName: "Переулок Итальянский",

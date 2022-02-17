@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import s from "./Museum.module.scss";
 
 const Museum: FC<museumsT> = (props) => {
-  const { avatar, displayName, color, isWide, name } = props;
+  const { avatar, displayName, color, isWide, name, textColor } = props;
   return (
     <div className={isWide ? `${s.wrapper} ${s.wideWrapper}` : `${s.wrapper} ${s.narrowWrapper}`}>
       <Link to={name}>
@@ -15,7 +15,9 @@ const Museum: FC<museumsT> = (props) => {
           }}
           className={s.nameWrapper}
         >
-          <div className={s.name}>{displayName}</div>
+          <div style={{ color: textColor }} className={s.name}>
+            {displayName}
+          </div>
         </div>
       </Link>
     </div>
