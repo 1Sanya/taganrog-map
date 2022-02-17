@@ -2,8 +2,6 @@ import React, { createRef, useEffect } from "react";
 import s from "./album.module.scss";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { useActions } from "../../../hooks/useActions";
-import { Link } from "react-router-dom";
-import ArrowLeftIcon from "../../../Components/svgComponents/ArrowLeftIcon";
 import AlbumLoadingPage from "../../Album/AlbumLoadingPage";
 import { map } from "lodash";
 
@@ -29,13 +27,6 @@ const OtherPhotos = () => {
 
   return (
     <div onWheel={scrollAlbum} ref={ref} className={s.wrapper}>
-      <div className={s.header}>
-        <Link to={"/"}>
-          <button className={s.arrowIcon}>
-            <ArrowLeftIcon />
-          </button>
-        </Link>
-      </div>
       <div className={s.photosWrapper}>
         {map(photos, (img: any) => (
           <img className={s.img} src={img} key={img} alt="" />

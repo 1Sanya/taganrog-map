@@ -9,13 +9,14 @@ const Albums = () => {
     <>
       <div className={s.albumCategory}>Музеи</div>
       <div className={s.museumWrapper}>
-        {museums.map((museum) => (
+        {museums.map((museum, index) => (
           <Museum
+            index={index}
             avatar={museum.avatar}
             displayName={museum.displayName}
             name={museum.name}
             mapsLink={museum.mapsLink}
-            museumOnlineLink=""
+            museumOnlineLink={museum.museumOnlineLink && museum.museumOnlineLink}
             key={museum.name}
             color={museum.color ?? "hsl(23,68%,71%)"}
             textColor={museum.textColor ?? "#ffffff"}

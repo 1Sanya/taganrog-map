@@ -9,8 +9,9 @@ const Albums = () => {
     <>
       <div className={s.albumCategory}>АЛЬБОМЫ</div>
       <div className={s.museumWrapper}>
-        {albums.map((museum) => (
+        {albums.map((museum, index) => (
           <Museum
+            index={index}
             avatar={museum.avatar}
             displayName={museum.displayName}
             name={museum.name}

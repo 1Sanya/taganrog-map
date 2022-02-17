@@ -6,6 +6,27 @@ import { useActions } from "../../hooks/useActions";
 import AlbumLoadingPage from "./AlbumLoadingPage";
 import { Link } from "react-router-dom";
 import ArrowLeftIcon from "../../Components/svgComponents/ArrowLeftIcon";
+import { Grid } from "@material-ui/core";
+import styled from "styled-components";
+
+const StyledGrid = styled(Grid)`
+  position: fixed;
+`;
+
+const StyledButton = styled.button`
+  margin: 20px 14px;
+  padding: 4px 14px;
+  outline: 1px #fff solid;
+
+  color: #fff;
+  width: 6.5em;
+  height: 2.8em;
+
+  @media (min-width: 900px) {
+    width: 10em;
+    font-size: 18px;
+  }
+`;
 
 const AlbumPage: FC<albumsPageT> = (props) => {
   const { name } = props;
@@ -33,16 +54,20 @@ const AlbumPage: FC<albumsPageT> = (props) => {
 
   return (
     <div onWheel={scrollAlbum} ref={ref} className={s.wrapper}>
-      <div className={s.header}>
-        <Link to={"/"}>
-          <button className={s.arrowIcon}>
-            <ArrowLeftIcon />
-          </button>
-        </Link>
-        <a target="_blank" href={mapsLink} rel="noreferrer">
-          <button className={s.mapIcon}>На карте</button>
-        </a>
-      </div>
+      <StyledGrid container justifyContent="space-between">
+        <Grid item>
+          <Link to={"/"}>
+            <StyledButton className={s.arrowIcon}>
+              <ArrowLeftIcon />
+            </StyledButton>
+          </Link>
+        </Grid>
+        <Grid item>
+          <a target="_blank" href={mapsLink} rel="noreferrer">
+            <StyledButton>На карте</StyledButton>
+          </a>
+        </Grid>
+      </StyledGrid>
       <div className={s.photosWrapper}>
         {currentAlbum.map((img) => (
           <img className={s.img} src={img} key={img} alt="" />

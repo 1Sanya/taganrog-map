@@ -9,13 +9,6 @@
   //animation: galleyStartScroll 1.2s linear .5s;
 }
 
-.header {
-  position: fixed;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  height: 10vh;
-}
 
 .arrowIcon {
   margin: 20px 25px;
@@ -30,7 +23,7 @@
 }
 
 .mapIcon {
-  margin: 20px 25px;
+  margin: 20px 14px;
 
   padding: 4px 14px;
   outline: 1px #fff solid;
@@ -72,6 +65,10 @@
   padding-top: 17vh;
   display: flex;
   flex-direction: row;
+
+  @media (min-width: 900px) {
+    padding-top: 14vh;
+  }
 }
 
 .img {

@@ -1,4 +1,5 @@
 import React, { createRef, FC, Suspense, useEffect } from "react";
+import { Grid } from "@material-ui/core";
 import { albumsPageT } from "../../Types/albumsPageT";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
@@ -6,6 +7,26 @@ import s from "./album.module.scss";
 import AlbumLoadingPage from "./AlbumLoadingPage";
 import { Link } from "react-router-dom";
 import ArrowLeftIcon from "../../Components/svgComponents/ArrowLeftIcon";
+import styled from "styled-components";
+
+const StyledGrid = styled(Grid)`
+  position: fixed;
+`;
+
+const StyledButton = styled.button`
+  margin: 20px 14px;
+  padding: 4px 14px;
+  outline: 1px #fff solid;
+
+  color: #fff;
+  width: 6.5em;
+  height: 2.8em;
+
+  @media (min-width: 900px) {
+    width: 10em;
+    font-size: 18px;
+  }
+`;
 
 const Album: FC<albumsPageT> = (props) => {
   const { name } = props;
@@ -40,18 +61,31 @@ const Album: FC<albumsPageT> = (props) => {
 
   return (
     <div onWheel={scrollAlbum} ref={ref} className={s.wrapper}>
-      <div className={s.header}>
-        <Link to={"/"}>
-          <button className={s.arrowIcon}>
-            <ArrowLeftIcon />
-          </button>
-        </Link>
-        <div>
-          <a target="_blank" href={mapsLink} rel="noreferrer">
-            <button className={s.mapIcon}>На карте</button>
-          </a>
-        </div>
-      </div>
+      <StyledGrid container justifyContent="space-between">
+        <Grid item>
+          <Link to={"/"}>
+            <StyledButton className={s.arrowIcon}>
+              <ArrowLeftIcon />
+            </StyledButton>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Grid container>
+            <Grid item>
+              <a target="_blank" href={mapsLink} rel="noreferrer">
+                <StyledButton>На карте</StyledButton>
+              </a>
+            </Grid>
+            {museumOnlineLink && (
+              <Grid item>
+                <a target="_blank" href={museumOnlineLink} rel="noreferrer">
+                  <StyledButton>Посетить онлайн</StyledButton>
+                </a>
+              </Grid>
+            )}
+          </Grid>
+        </Grid>
+      </StyledGrid>
       <div className={s.photosWrapper}>
         {currentAlbum.map((img) => (
           <img className={s.img} src={img} key={img} alt="" />

@@ -104,7 +104,7 @@ export const initialState: albumsReducerT = {
     },
 
     {
-      displayName: "Плитка, ворота, балконы, рамы и заборы",
+      displayName: "Плитка, ворота, балконы",
       name: "tile",
       avatar: balcony,
       mapsLink:
@@ -128,8 +128,7 @@ export const initialState: albumsReducerT = {
       mapsLink: "https://yandex.ru/maps/-/CCUuiCG8hB",
       isWide: true,
       // color: "rgb(139, 158, 188)",
-      color: "rgb(252, 236, 236)",
-      textColor: "#000000",
+      color: "#D27B62",
     },
     {
       displayName: "Переулок Итальянский",

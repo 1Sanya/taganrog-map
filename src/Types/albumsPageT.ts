@@ -25,6 +25,7 @@ export interface museumsT {
   color?: string;
   isWide: boolean;
   textColor?: string;
+  index?: number;
 }
 
 export interface albumsPageT {
