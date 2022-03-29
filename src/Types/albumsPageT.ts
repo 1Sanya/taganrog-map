@@ -9,23 +9,23 @@ export type albumsReducerT = {
 export interface albumsT {
   name: string;
   displayName: string;
-  avatar: string;
+  mediaUrl: string;
   isWide: boolean;
   color?: string;
-  mapsLink: string;
+  onMapsLink: string;
   textColor?: string;
 }
 
 export interface museumsT {
   name: string;
   displayName: string;
-  avatar: string;
-  museumOnlineLink: string;
-  mapsLink: string;
-  color?: string;
+  mediaUrl: string;
   isWide: boolean;
+  color?: string;
+  onMapsLink: string;
   textColor?: string;
   index?: number;
+  museumOnlineLink: string;
 }
 
 export interface albumsPageT {

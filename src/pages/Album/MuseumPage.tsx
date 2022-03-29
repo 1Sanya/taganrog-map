@@ -36,7 +36,7 @@ const Album: FC<albumsPageT> = (props) => {
   const { fetchAlbumAC } = useActions();
 
   const selectedAlbum = museums.filter((album) => album.name === name);
-  const { displayName, mapsLink, museumOnlineLink } = selectedAlbum[0];
+  const { displayName, onMapsLink, museumOnlineLink } = selectedAlbum[0];
 
   const ref = createRef<HTMLInputElement>();
 
@@ -72,7 +72,7 @@ const Album: FC<albumsPageT> = (props) => {
         <Grid item>
           <Grid container>
             <Grid item>
-              <a target="_blank" href={mapsLink} rel="noreferrer">
+              <a target="_blank" href={onMapsLink} rel="noreferrer">
                 <StyledButton>На карте</StyledButton>
               </a>
             </Grid>

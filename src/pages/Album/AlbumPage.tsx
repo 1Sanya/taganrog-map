@@ -34,7 +34,7 @@ const AlbumPage: FC<albumsPageT> = (props) => {
   const { fetchAlbumAC } = useActions();
 
   const selectedAlbum = albums.filter((album) => album.name === name);
-  const { displayName, mapsLink } = selectedAlbum[0];
+  const { displayName, onMapsLink } = selectedAlbum[0];
 
   const ref = createRef<HTMLInputElement>();
 
@@ -63,7 +63,7 @@ const AlbumPage: FC<albumsPageT> = (props) => {
           </Link>
         </Grid>
         <Grid item>
-          <a target="_blank" href={mapsLink} rel="noreferrer">
+          <a target="_blank" href={onMapsLink} rel="noreferrer">
             <StyledButton>На карте</StyledButton>
           </a>
         </Grid>

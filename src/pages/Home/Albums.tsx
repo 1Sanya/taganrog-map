@@ -12,10 +12,10 @@ const Albums = () => {
         {albums.map((museum, index) => (
           <Museum
             index={index}
-            avatar={museum.avatar}
+            mediaUrl={museum.mediaUrl}
             displayName={museum.displayName}
             name={museum.name}
-            mapsLink={museum.mapsLink}
+            onMapsLink={museum.onMapsLink}
             museumOnlineLink=""
             key={museum.name}
             color={museum.color ?? "hsl(23,68%,71%)"}

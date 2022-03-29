@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import s from "./Museum.module.scss";
 
 const Museum: FC<museumsT> = (props) => {
-  const { avatar, displayName, color, isWide, name, textColor, index, museumOnlineLink } = props;
+  const { mediaUrl, displayName, color, isWide, name, textColor, index, museumOnlineLink } = props;
   const ref = createRef<HTMLInputElement>();
 
   function onClick() {
@@ -19,7 +19,7 @@ const Museum: FC<museumsT> = (props) => {
     >
       <div ref={ref} className={museumOnlineLink ? `museum${index}` : `album${index}`}>
         <Link to={name}>
-          <img className={s.img} src={avatar} alt="" />
+          <img className={s.img} src={mediaUrl} alt="" />
           <div
             style={{
               background: `linear-gradient( to top, ${color} 50% , hsla(0, 0%, 50%, .05))`,
