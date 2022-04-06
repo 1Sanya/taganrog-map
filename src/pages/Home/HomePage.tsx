@@ -9,8 +9,6 @@ const OtherPhotosLazy = lazy(() => import("./OtherPhotos/index"));
 const HomePage = () => {
   const [scrollY, setScrollY] = useState<string>("");
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     if (window) {
       setScrollY(String(window.sessionStorage.getItem("scrollTo")));
