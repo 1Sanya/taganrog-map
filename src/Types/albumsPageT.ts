@@ -1,6 +1,7 @@
 export type albumsReducerT = {
   museums: museumsT[];
   albums: albumsT[];
+  industries: industriesT[];
   error: boolean | string;
   loading: boolean;
   currentAlbum: any[];
@@ -26,6 +27,16 @@ export interface museumsT {
   textColor?: string;
   index?: number;
   museumOnlineLink: string;
+}
+
+export interface industriesT {
+  name: string;
+  displayName: string;
+  mediaUrl: string;
+  isWide: boolean;
+  color?: string;
+  onMapsLink: string;
+  textColor?: string;
 }
 
 export interface albumsPageT {

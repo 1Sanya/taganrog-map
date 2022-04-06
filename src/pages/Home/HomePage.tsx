@@ -1,4 +1,4 @@
-import React, { createRef, lazy, useEffect, useRef, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import s from "./Home.module.scss";
 import AboutVideo from "./AboutVideo";
 import HomeNav from "./HomeNav/HomeNav";
@@ -8,6 +8,8 @@ const AlbumsLazy = lazy(() => import("./Albums"));
 const OtherPhotosLazy = lazy(() => import("./OtherPhotos/index"));
 const HomePage = () => {
   const [scrollY, setScrollY] = useState<string>("");
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     if (window) {
