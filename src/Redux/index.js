@@ -1,16 +1,11 @@
-import { createStore } from "redux-dynamic-modules";
-import { getAlbumsModule } from "./Reducers/albumsReducer";
-import { getSagaExtension } from "redux-dynamic-modules-saga";
-import { getThunkExtension } from "redux-dynamic-modules-thunk";
-import { getMusicModule } from "./Reducers/homeReducer";
+import { albumsReducer } from './Reducers/albumsReducer'
+import { homeReducer } from "./Reducers/homeReducer";
 
-export const store = createStore(
-    {
-        initialState: {},
-        extensions: [
-            getSagaExtension ? getSagaExtension() : undefined,
-            getThunkExtension ? getThunkExtension() : undefined
-        ].filter(Boolean),
+import {configureStore} from '@reduxjs/toolkit';
+
+export const store = configureStore({
+    reducer: {
+        albumsReducer,
+        homeReducer,
     },
-    [getAlbumsModule(), getMusicModule()]
-);
+});

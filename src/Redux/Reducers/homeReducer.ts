@@ -27,7 +27,7 @@ interface InitialState {
   videoLoading: boolean;
 }
 
-const homeReducer = (state = initialState, action: homeACT): InitialState => {
+export const homeReducer = (state = initialState, action: homeACT): InitialState => {
   switch (action.type) {
     case homeAT.FETCH_MAIN_VIDEO_START:
       return {
