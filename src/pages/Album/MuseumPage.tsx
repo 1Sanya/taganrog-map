@@ -1,5 +1,5 @@
 import React, { createRef, FC, Suspense, useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import { albumsPageT } from "../../Types/albumsPageT";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";

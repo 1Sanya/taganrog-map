@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import s from "./Home.module.scss";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";

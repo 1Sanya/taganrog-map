@@ -6,7 +6,7 @@ import { useActions } from "../../hooks/useActions";
 import AlbumLoadingPage from "./AlbumLoadingPage";
 import { Link } from "react-router-dom";
 import ArrowLeftIcon from "../../Components/svgComponents/ArrowLeftIcon";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import styled from "styled-components";
 
 const StyledGrid = styled(Grid)`
