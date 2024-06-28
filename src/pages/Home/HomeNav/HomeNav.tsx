@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
-import { Grid, Container, Button } from "@material-ui/core";
 import s from "./HomeNav.module.scss";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import styled from "styled-components";
+import { Container, Grid } from "@mui/material";
 
 const StyledGrid = styled(Grid)`
   background: linear-gradient(hsla(300, 2%, 20%, 0.85) 0.5%, hsla(300, 7%, 75%, 0.01));
@@ -36,6 +36,7 @@ const HomeNav: FC = () => {
   }, []);
 
   useEffect(() => {
+    if (!music) return;
     setAudio(new Audio(music));
   }, [music]);
 

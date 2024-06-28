@@ -1,7 +1,6 @@
-import firebase from "firebase/compat";
-import "firebase/storage";
-
-// const width = window.innerWidth;
+// src/firebase/config.js
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVl9VtDQWsZhN9--tB5bhKTz2zE7XtROQ",
@@ -12,15 +11,8 @@ const firebaseConfig = {
   appId: "1:85395453188:web:0b7db9c3127488493b8c51",
 };
 
-// const firebaseConfigMobile = {
-//   apiKey: "AIzaSyAtsjeEAiaOgRfOw_lHtvLgBOtA3EJ4n1w",
-//   authDomain: "taganrog-map-mobile.firebaseapp.com",
-//   projectId: "taganrog-map-mobile",
-//   storageBucket: "taganrog-map-mobile.appspot.com",
-//   messagingSenderId: "713065896797",
-//   appId: "1:713065896797:web:a3f04121927ab767f9e6b4",
-// };
+// Инициализируем Firebase
+const app = initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
-
-export const storage = firebase.storage();
+// Получаем доступ к хранилищу Firebase
+export const storage = getStorage(app);
