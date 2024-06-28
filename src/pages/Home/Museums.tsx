@@ -4,7 +4,10 @@ import Museum from "./Museum";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const Albums = () => {
-  const { museums } = useTypedSelector((state) => state.albumsReducer);
+  const albumsReducer = useTypedSelector((state) => state.albumsReducer);
+
+  const { museums } = albumsReducer
+
   return (
     <>
       <div className={s.albumCategory}>Музеи</div>

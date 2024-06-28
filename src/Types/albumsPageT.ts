@@ -1,7 +1,7 @@
 export type albumsReducerT = {
   museums: museumsT[];
   albums: albumsT[];
-  industries: industriesT[];
+  // industries: industriesT[];
   error: boolean | string;
   loading: boolean;
   currentAlbum: any[];
