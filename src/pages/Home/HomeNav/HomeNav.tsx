@@ -92,8 +92,14 @@ const HomeNav: FC = () => {
               {/* <SearchIcon />*/}
               {/* </StyledLink>*/}
               <Grid item>
-                <a target="_blank" href="https://1sanya.ru" rel="noreferrer">
-                  <StyledButton>Страница автора</StyledButton>
+                <a target="_blank" href="https://t.me/sanyablog1" rel="noreferrer">
+                  <StyledButton>Телеграм-канал автора</StyledButton>
+                  {/* <Button>Страница автора</Button>*/}
+                </a>
+              </Grid>
+              <Grid item>
+                <a target="_blank" href="https://t.me/y1sanyaru" rel="noreferrer">
+                  <StyledButton>Написать лично</StyledButton>
                   {/* <Button>Страница автора</Button>*/}
                 </a>
               </Grid>
