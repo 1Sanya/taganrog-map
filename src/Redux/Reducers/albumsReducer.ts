@@ -81,10 +81,12 @@ export const initialState: albumsReducerT = {
     {
       displayName: "Богудония",
       name: "bogudonia",
-      mediaUrl: bogudonia1,
+      mediaUrl: 'https://firebasestorage.googleapis.com/v0/b/taganrog-map.appspot.com/o/bogudonia%2Fbogudonia-preview.mp4?alt=media&token=82f23225-de3f-424a-95a3-a0b767f05487',
+      // mediaUrl: bogudonia1,
       onMapsLink: "https://yandex.ru/maps/-/CCUuiCCjXB",
       isWide: false,
       color: "#8696A4",
+      isVideoPreview: true
     },
     {
       displayName: "Переулок Шмидта",
@@ -97,10 +99,13 @@ export const initialState: albumsReducerT = {
     {
       displayName: "Старое кладбище",
       name: "graveyard",
-      mediaUrl: graveyard1,
+      mediaUrl: 'https://firebasestorage.googleapis.com/v0/b/taganrog-map.appspot.com/o/graveyard%2Fgrave-preview.mp4?alt=media&token=e03077bc-bd84-4e7f-862d-25e4665a5367',
+      // mediaUrl: 'https://disk.yandex.ru/i/24Bwl0ODwNYtZA',
+      // mediaUrl: graveyard1,
       onMapsLink: "https://yandex.ru/maps/-/CCUuiCGGlA",
       isWide: false,
       color: "rgb(126, 101, 76)",
+      isVideoPreview: true
     },
 
     {

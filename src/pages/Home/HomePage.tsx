@@ -1,12 +1,24 @@
-import React, { lazy, useEffect, useState } from "react";
+import React, { lazy, useEffect, useRef, useState } from 'react'
 import s from "./Home.module.scss";
 import AboutVideo from "./AboutVideo";
 import HomeNav from "./HomeNav/HomeNav";
+import { Box } from '@mui/material'
+import { useInView } from 'react-intersection-observer'
 
 const MuseumsLazy = lazy(() => import("./Museums"));
 const AlbumsLazy = lazy(() => import("./Albums"));
 const OtherPhotosLazy = lazy(() => import("./OtherPhotos/index"));
 const HomePage = () => {
+
+  const { ref: preAlbumsRef, inView: isAlbumsInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: preOtherPhotosRef, inView: isOtherPhotosInView } = useInView({
+    triggerOnce: true,
+  });
+
   const [scrollY, setScrollY] = useState<string>("");
 
   useEffect(() => {
@@ -23,8 +35,14 @@ const HomePage = () => {
       <HomeNav />
       <AboutVideo />
       <MuseumsLazy />
-      <AlbumsLazy />
-      <OtherPhotosLazy />
+
+      <Box ref={preAlbumsRef}>
+        {isAlbumsInView && <AlbumsLazy />}
+      </Box>
+
+      <Box ref={preOtherPhotosRef}/>
+      {isOtherPhotosInView && <OtherPhotosLazy />}
+
     </div>
   );
 };

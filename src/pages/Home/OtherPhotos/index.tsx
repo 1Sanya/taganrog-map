@@ -8,7 +8,7 @@ import { map } from "lodash";
 const OtherPhotos = () => {
   const { photos, photosIsLoading } = useTypedSelector((state) => state.homeReducer);
   const { fetchOtherPhotosAC } = useActions();
-
+  console.log('>>> Other photos')
   const ref = createRef<HTMLInputElement>();
 
   const scrollAlbum = (e: { deltaY: number }) => {

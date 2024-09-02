@@ -15,28 +15,16 @@ export interface albumsT {
   color?: string;
   onMapsLink: string;
   textColor?: string;
+  isVideoPreview?: boolean;
 }
 
-export interface museumsT {
-  name: string;
-  displayName: string;
-  mediaUrl: string;
-  isWide: boolean;
-  color?: string;
-  onMapsLink: string;
-  textColor?: string;
-  index?: number;
+
+export interface museumsT extends albumsT {
   museumOnlineLink: string;
 }
 
-export interface industriesT {
-  name: string;
-  displayName: string;
-  mediaUrl: string;
-  isWide: boolean;
-  color?: string;
-  onMapsLink: string;
-  textColor?: string;
+export interface industriesT extends albumsT {
+
 }
 
 export interface albumsPageT {

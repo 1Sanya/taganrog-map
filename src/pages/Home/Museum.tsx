@@ -2,15 +2,18 @@ import React, { createRef, FC } from "react";
 import { museumsT } from "../../Types/albumsPageT";
 import { Link } from "react-router-dom";
 import s from "./Museum.module.scss";
+import { isImageUrl, isVideoUrl } from 'src/utils'
 
-const Museum: FC<museumsT> = (props) => {
-  const { mediaUrl, displayName, color, isWide, name, textColor, index, museumOnlineLink } = props;
+const Museum: FC<museumsT & { index: number }> = (props) => {
+  const { mediaUrl, displayName, color, isWide, name, textColor, index, museumOnlineLink, isVideoPreview } = props;
   const ref = createRef<HTMLInputElement>();
 
   function onClick() {
-    // @ts-ignore
     window.sessionStorage.setItem("scrollTo", String(ref.current?.className));
   }
+
+  console.log('name', displayName, 'mediaUrl', mediaUrl, 'isVideoUrl', isVideoUrl(mediaUrl), 'isImageUrl', isImageUrl(mediaUrl), 'isVideoPreview', isVideoPreview)
+
 
   return (
     <div
@@ -19,7 +22,20 @@ const Museum: FC<museumsT> = (props) => {
     >
       <div ref={ref} className={museumOnlineLink ? `museum${index}` : `album${index}`}>
         <Link to={name}>
-          <img className={s.img} src={mediaUrl} alt="" />
+          {isImageUrl(mediaUrl) && (
+            <img className={s.img} src={mediaUrl} alt={displayName} />
+          )}
+          {isVideoPreview && (
+            <div className={s.videoWrapper}>
+              <video className={s.video} muted autoPlay loop playsInline poster={mediaUrl || undefined}>
+                <source src={mediaUrl} />
+              </video>
+            </div>
+          )}
+          {/*{isVideoUrl(mediaUrl) && (*/}
+          {/*// Render loop, muted, witout controls player*/}
+
+          {/*)}*/}
           <div
             style={{
               background: `linear-gradient( to top, ${color} 50% , hsla(0, 0%, 50%, .05))`,
