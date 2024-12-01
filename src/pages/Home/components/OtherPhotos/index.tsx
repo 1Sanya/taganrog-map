@@ -1,8 +1,8 @@
 import React, { createRef, useEffect } from "react";
 import s from "./album.module.scss";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import { useActions } from "../../../hooks/useActions";
-import AlbumLoadingPage from "../../Album/AlbumLoadingPage";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
+import { useActions } from "../../../../hooks/useActions";
+import AlbumLoadingPage from "../../../Album/AlbumLoadingPage";
 import { map } from "lodash";
 
 const OtherPhotos = () => {
@@ -11,11 +11,11 @@ const OtherPhotos = () => {
   const ref = createRef<HTMLInputElement>();
 
   const scrollAlbum = (e: { deltaY: number }) => {
-    if (ref.current) {
-      ref.current.scrollTo({
-        left: ref.current.scrollLeft + e.deltaY,
-      });
-    }
+    // if (ref.current) {
+    //   ref.current.scrollTo({
+    //     left: ref.current.scrollLeft + e.deltaY,
+    //   });
+    // }
   };
 
   useEffect(() => {

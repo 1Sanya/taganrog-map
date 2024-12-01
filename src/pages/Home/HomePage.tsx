@@ -1,13 +1,13 @@
 import React, { lazy, useEffect, useState } from 'react'
 import s from "./Home.module.scss";
 import AboutVideo from "./AboutVideo";
-import HomeNav from "./HomeNav/HomeNav";
+import HomeNav from "./components/HomeNav/HomeNav";
 import { Box } from '@mui/material'
 import { useInView } from 'react-intersection-observer'
 
 const MuseumsLazy = lazy(() => import("./Museums"));
 const AlbumsLazy = lazy(() => import("./Albums"));
-const OtherPhotosLazy = lazy(() => import("./OtherPhotos/index"));
+const OtherPhotosLazy = lazy(() => import("./components/OtherPhotos/index"));
 const HomePage = () => {
 
   const { ref: preAlbumsRef, inView: isAlbumsInView } = useInView({
@@ -19,16 +19,15 @@ const HomePage = () => {
     triggerOnce: true,
   });
 
-  const [scrollY, setScrollY] = useState<string>("");
-
-  useEffect(() => {
-    if (window) {
-      setScrollY(String(window.sessionStorage.getItem("scrollTo")));
-      if (scrollY) {
-        document?.querySelector("." + scrollY)?.scrollIntoView();
-      }
-    }
-  });
+  /* Scroll to last selected item when user return from detailed page
+  * Need to be fixed. Now it broke regular page scrolling */
+  // useEffect(() => {
+  //   const scrollToIndex = window?.sessionStorage.getItem("scrollTo")
+  //
+  //   if (!scrollToIndex) return
+  //
+  //   document?.querySelector("." + scrollToIndex)?.scrollIntoView();
+  // })
 
   return (
     <div className={s.wrapper}>

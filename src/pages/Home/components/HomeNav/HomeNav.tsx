@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import s from "./HomeNav.module.scss";
-import { useActions } from "../../../hooks/useActions";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { useActions } from "../../../../hooks/useActions";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import styled from "styled-components";
 import { Container, Grid } from "@mui/material";
 

@@ -39,11 +39,12 @@ const AlbumPage: FC<albumsPageT> = (props) => {
   const ref = createRef<HTMLInputElement>();
 
   const scrollAlbum = (e: { deltaY: number }) => {
-    if (ref.current) {
-      ref.current.scrollTo({
-        left: ref.current.scrollLeft + e.deltaY,
-      });
-    }
+    // if (ref.current) {
+    //   ref.current.scrollTo({
+    //     left: ref.current.scrollLeft + e.deltaY,
+    //     left: ref.current.scrollLeft + e.deltaY,
+    //   });
+    // }
   };
 
   useEffect(() => {
