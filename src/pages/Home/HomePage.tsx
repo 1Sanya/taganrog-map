@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useRef, useState } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import s from "./Home.module.scss";
 import AboutVideo from "./AboutVideo";
 import HomeNav from "./HomeNav/HomeNav";
@@ -36,12 +36,13 @@ const HomePage = () => {
       <AboutVideo />
       <MuseumsLazy />
 
-      <Box ref={preAlbumsRef}>
+      <Box ref={preAlbumsRef} sx={{ minHeight: 300 }}>
         {isAlbumsInView && <AlbumsLazy />}
       </Box>
 
-      <Box ref={preOtherPhotosRef}/>
-      {isOtherPhotosInView && <OtherPhotosLazy />}
+      <Box ref={preOtherPhotosRef}>
+        {isOtherPhotosInView && <OtherPhotosLazy />}
+      </Box>
 
     </div>
   );

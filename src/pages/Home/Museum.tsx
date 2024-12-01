@@ -12,9 +12,6 @@ const Museum: FC<museumsT & { index: number }> = (props) => {
     window.sessionStorage.setItem("scrollTo", String(ref.current?.className));
   }
 
-  console.log('name', displayName, 'mediaUrl', mediaUrl, 'isVideoUrl', isVideoUrl(mediaUrl), 'isImageUrl', isImageUrl(mediaUrl), 'isVideoPreview', isVideoPreview)
-
-
   return (
     <div
       onClick={onClick}
