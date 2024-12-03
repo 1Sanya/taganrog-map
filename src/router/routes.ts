@@ -20,13 +20,13 @@ import {
   URBAN_MUSEUM_ROUTE,
   VODOLECHEB_ROUTE,
   EUROPE_ROUTE,
-} from "./consts";
+} from "./constants";
 import { lazy } from "react";
-import Home from "./pages/Home/HomePage";
+import Home from "../pages/Home/HomePage";
 
-const MuseumLazy = lazy(() => import("./pages/Album/MuseumPage"));
-const SearchLazy = lazy(() => import("./pages/Search/Search"));
-const Album = lazy(() => import("./pages/Album/AlbumPage"));
+const MuseumLazy = lazy(() => import("../pages/Album/MuseumPage"));
+const SearchLazy = lazy(() => import("../pages/Search/Search"));
+const Album = lazy(() => import("../pages/Album/AlbumPage"));
 
 export const routes = [
   {

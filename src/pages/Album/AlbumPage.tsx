@@ -1,6 +1,6 @@
 import React, { createRef, FC, useEffect } from "react";
 import s from "./album.module.scss";
-import { albumsPageT } from "../../Types/albumsPageT";
+import { albumsPageT } from "../../types/albumsPageT";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import AlbumLoadingPage from "./AlbumLoadingPage";
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import ArrowLeftIcon from "../../Components/svgComponents/ArrowLeftIcon";
 import { Grid } from "@mui/material";
 import styled from "styled-components";
+import { PageLoaderV2 } from '../../Components/PageLoaderV2'
 
 const StyledGrid = styled(Grid)`
   position: fixed;
@@ -51,7 +52,9 @@ const AlbumPage: FC<albumsPageT> = (props) => {
     fetchAlbumAC(name);
   }, []);
 
-  if (loading) return <AlbumLoadingPage displayName={displayName} />;
+  // if (loading) return <AlbumLoadingPage displayName={displayName} />;
+
+  if (loading) return <PageLoaderV2 />
 
   return (
     <div onWheel={scrollAlbum} ref={ref} className={s.wrapper}>

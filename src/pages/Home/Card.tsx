@@ -1,10 +1,10 @@
 import React, { createRef, FC } from "react";
-import { museumsT } from "../../Types/albumsPageT";
+import { museumsT } from "../../types/albumsPageT";
 import { Link } from "react-router-dom";
 import s from "./Museum.module.scss";
 import { isImageUrl, isVideoUrl } from 'src/utils'
 
-const Museum: FC<museumsT & { index: number }> = (props) => {
+const Card: FC<museumsT & { index: number }> = (props) => {
   const { mediaUrl, displayName, color, isWide, name, textColor, index, museumOnlineLink, isVideoPreview } = props;
   const ref = createRef<HTMLInputElement>();
 
@@ -49,4 +49,4 @@ const Museum: FC<museumsT & { index: number }> = (props) => {
   );
 };
 
-export default Museum;
+export default Card;

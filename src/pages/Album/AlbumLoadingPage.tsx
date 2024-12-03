@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import s from "./loadingPage.module.scss";
-import { loadingPageT } from "../../Types/albumsPageT";
+import { loadingPageT } from "../../types/albumsPageT";
 
 const AlbumLoadingPage: FC<loadingPageT> = (props) => {
   const { displayName } = props;

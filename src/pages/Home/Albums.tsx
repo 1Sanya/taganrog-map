@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Home.module.scss";
-import Museum from "./Museum";
+import Card from "./Card";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const Albums = () => {
@@ -10,7 +10,7 @@ const Albums = () => {
       <div className={s.albumCategory}>АЛЬБОМЫ</div>
       <div className={s.museumWrapper}>
         {albums.map((museum, index) => (
-          <Museum
+          <Card
             index={index}
             mediaUrl={museum.mediaUrl}
             displayName={museum.displayName}

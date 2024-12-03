@@ -1,6 +1,6 @@
 import React, { createRef, FC, Suspense, useEffect } from "react";
 import { Grid } from "@mui/material";
-import { albumsPageT } from "../../Types/albumsPageT";
+import { albumsPageT } from "../../types/albumsPageT";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
 import s from "./album.module.scss";
