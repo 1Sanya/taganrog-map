@@ -25,11 +25,12 @@ const StyledButton = styled.button`
 
 const HomeNav: FC = () => {
   const [music, setMusic] = useState<string | null>(null)
-  const [audio, setAudio] = useState(new Audio());
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [musicPlaying, setMusicPlaying] = useState(false);
-  audio.loop = true;
 
   useEffect(() => {
+    if (!!music || !musicPlaying) return
+
     const fetchAndSetMusic = async () => {
       try {
         const music = await fetchMusic();
@@ -41,7 +42,7 @@ const HomeNav: FC = () => {
     }
 
     fetchAndSetMusic();
-  }, []);
+  }, [musicPlaying]);
 
   useEffect(() => {
     if (!music) return;
@@ -49,8 +50,11 @@ const HomeNav: FC = () => {
   }, [music]);
 
   useEffect(() => {
+    if (!music || !audio) return
+
     musicPlaying ? audio.play() : audio.pause();
-  }, [musicPlaying]);
+    audio.loop = true
+  }, [musicPlaying, music, audio]);
 
   return (
     <StyledGrid container>
