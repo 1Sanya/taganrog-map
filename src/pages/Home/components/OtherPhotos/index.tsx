@@ -1,33 +1,43 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useState } from 'react'
 import s from "./album.module.scss";
-import { useTypedSelector } from "../../../../hooks/useTypedSelector";
-import { useActions } from "../../../../hooks/useActions";
 import AlbumLoadingPage from "../../../Album/AlbumLoadingPage";
-import { map } from "lodash";
+import { fetchOtherPhotos } from '../../../../API/fetchOthersPhotos'
 
 const OtherPhotos = () => {
-  const { photos, photosIsLoading } = useTypedSelector((state) => state.homeReducer);
-  const { fetchOtherPhotosAC } = useActions();
+  const [mediaArray, setMediaArray] = useState<string[]>([])
+  const [loading, setLoading] = useState(false)
+
   const ref = createRef<HTMLInputElement>();
 
   const scrollAlbum = (e: { deltaY: number }) => {
     // if (ref.current) {
     //   ref.current.scrollTo({
     //     left: ref.current.scrollLeft + e.deltaY,
-    //   });
+    //   });t
     // }
   };
 
   useEffect(() => {
-    fetchOtherPhotosAC();
-  }, []);
+    const fetchAndSetOtherMedia = async () => {
+      try {
+        const otherMedia = await fetchOtherPhotos()
+        if (!otherMedia) return
 
-  if (photosIsLoading) return <AlbumLoadingPage displayName={"Грузиться, скоро увидете :3"} />;
+        setMediaArray(otherMedia)
+      } catch (error) {
+        console.log('Error on loading other media:', error)
+      }
+    }
+
+    fetchAndSetOtherMedia()
+  }, [])
+
+  if (loading) return <AlbumLoadingPage displayName={"Грузиться, скоро увидете :3"} />;
 
   return (
     <div onWheel={scrollAlbum} ref={ref} className={s.wrapper}>
       <div className={s.photosWrapper}>
-        {map(photos, (img: any) => (
+        {mediaArray.map((img) => (
           <img className={s.img} src={img} key={img} alt="" />
         ))}
       </div>

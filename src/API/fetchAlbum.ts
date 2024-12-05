@@ -1,7 +1,7 @@
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase/config";
 
-export const fetchAlbums = async (name: string) => {
+export const fetchAlbum = async (name: string) => {
   const fetchImages = async () => {
     // Create link to folder
     const storageRef = ref(storage, name);

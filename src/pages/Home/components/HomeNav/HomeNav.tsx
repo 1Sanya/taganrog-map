@@ -1,9 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
 import s from "./HomeNav.module.scss";
-import { useActions } from "../../../../hooks/useActions";
-import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import styled from "styled-components";
 import { Container, Grid } from "@mui/material";
+import { fetchMusic } from '../../../../API/fetchMusic'
 
 const StyledGrid = styled(Grid)`
   background: linear-gradient(hsla(300, 2%, 20%, 0.85) 0.5%, hsla(300, 7%, 75%, 0.01));
@@ -25,14 +24,23 @@ const StyledButton = styled.button`
 `;
 
 const HomeNav: FC = () => {
-  const { music } = useTypedSelector((state) => state.homeReducer);
-  const { fetchMusicAC } = useActions();
+  const [music, setMusic] = useState<string | null>(null)
   const [audio, setAudio] = useState(new Audio());
   const [musicPlaying, setMusicPlaying] = useState(false);
   audio.loop = true;
 
   useEffect(() => {
-    fetchMusicAC();
+    const fetchAndSetMusic = async () => {
+      try {
+        const music = await fetchMusic();
+        if (music) {
+          setMusic(music)
+        }
+      } catch (error) {
+      }
+    }
+
+    fetchAndSetMusic();
   }, []);
 
   useEffect(() => {

@@ -1,11 +1,11 @@
 import React, { createRef, FC } from "react";
-import { museumsT } from "../../types/albumsPageT";
 import { Link } from "react-router-dom";
 import s from "./Museum.module.scss";
-import { isImageUrl, isVideoUrl } from 'src/utils'
+import { isImageUrl } from 'src/utils'
+import { Group, Museum } from '../../constants/albums'
 
-const Card: FC<museumsT & { index: number }> = (props) => {
-  const { mediaUrl, displayName, color, isWide, name, textColor, index, museumOnlineLink, isVideoPreview } = props;
+const Card: FC<Museum & { index: number }> = (props) => {
+  const { mediaUrl, displayName, color, isWide, name, textColor, index, isVideoPreview, museumOnlineLink } = props;
   const ref = createRef<HTMLInputElement>();
 
   function onClick() {

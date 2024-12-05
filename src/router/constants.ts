@@ -1,7 +1,6 @@
 export const CHEHOV_HOUSE_ROUTE = "/chehov-house";
 export const CHEHOV_SHOP_ROUTE = "/chehov-shop";
 export const ART_ROUTE = "/art-museum";
-export const SEARCH_ROUTE = "/search";
 export const ALFERAKI_ROUTE = "/alferaki";
 export const BOGUDONIA_ROUTE = "/bogudonia";
 export const SHMIDTA_ROUTE = "/shmidta";

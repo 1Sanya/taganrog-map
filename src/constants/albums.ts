@@ -14,7 +14,22 @@ import chehovsHouse1 from '../assets/photo/chehov/1.png'
 import chehovShop1 from '../assets/photo/chekhovshop/1.jpg'
 import artMuseum1 from '../assets/photo/artmuseum/1.jpg'
 
-export const ALBUMS = [
+export interface Group {
+  displayName: string
+  name: string
+  mediaUrl: string
+  onMapsLink: string
+  isWide: boolean
+  color?: string
+  textColor?: string
+  isVideoPreview?: boolean
+}
+
+export interface Museum extends Group {
+  museumOnlineLink?: string
+}
+
+export const ALBUMS: Group[] = [
   {
     displayName: "Дворец Алфераки",
     name: "alferaki",
@@ -129,7 +144,7 @@ export const ALBUMS = [
   },
 ]
 
-export const MUSEUMS = [
+export const MUSEUMS: Museum[] = [
   {
     displayName: "Градостроительства и быта",
     name: "urbanMuseum",
@@ -169,3 +184,7 @@ export const MUSEUMS = [
     isWide: true,
   },
 ]
+
+export const INDUSTRIES = []
+
+export const ALL_GROUPS: (Group | Museum)[] = [...ALBUMS, ...MUSEUMS, ...INDUSTRIES]

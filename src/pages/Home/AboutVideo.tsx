@@ -1,43 +1,33 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from 'react'
 import { Grid } from "@mui/material";
 import s from "./Home.module.scss";
-import { useActions } from "../../hooks/useActions";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import ReactPlayer from "react-player/lazy";
 import styled from "styled-components";
-
-const StyledGrid = styled(Grid)`
-  height: 85vh;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  @media (min-width: 768px) {
-    height: 92vh;
-  }
-
-  @media (min-width: 1200px) {
-    height: 110vh;
-  }
-`;
+import { fetchMainVideo } from '../../API/fetchMainVideo'
 
 const AboutVideo: FC = () => {
-  const { bgVideo } = useTypedSelector((state) => state.homeReducer);
-  const { fetchMainVideoAC } = useActions();
+  const [videoSrc, setVideoSrc] = useState<null | string>(null)
 
   useEffect(() => {
-    fetchMainVideoAC();
+    const fetchAndSetVideoSrc = async () => {
+      try {
+        const videoSrcResponse = await fetchMainVideo();
+        if (videoSrcResponse) {
+          setVideoSrc(videoSrcResponse)
+        }
+      } catch (error) {
+        console.log('Error on main video loading', error)
+      }
+    }
+
+    fetchAndSetVideoSrc()
   }, []);
 
   return (
     <>
-      {/* <video className={s.video} poster={bgVideo} controls={true} autoPlay playsInline loop muted>*/}
+      {/* <video className={s.video} poster={videoSrc} controls={true} autoPlay playsInline loop muted>*/}
       {/* Awesome code */}
-      <video className={s.video} poster={bgVideo || undefined} autoPlay playsInline loop muted>
-        {bgVideo && <source src={bgVideo} />}
+      <video className={s.video} poster={videoSrc || undefined} autoPlay playsInline loop muted>
+        {videoSrc && <source src={videoSrc} />}
       </video>
 
       <div className={s.mainWrapper}>
@@ -47,7 +37,7 @@ const AboutVideo: FC = () => {
         {/*    top: 0,*/}
         {/*    left: 0,*/}
         {/*  }}*/}
-        {/*  url={bgVideo}*/}
+        {/*  url={videoSrc}*/}
         {/*  playing={true}*/}
         {/*  muted*/}
         {/*  loop*/}

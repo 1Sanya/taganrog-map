@@ -1,15 +1,16 @@
-import React from "react";
+import React from "react"
+// src
 import s from "./Home.module.scss";
 import Card from "./Card";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { ALBUMS } from '../../constants/albums'
 
 const Albums = () => {
-  const { albums } = useTypedSelector((state) => state.albumsReducer);
+
   return (
     <>
       <div className={s.albumCategory}>АЛЬБОМЫ</div>
       <div className={s.museumWrapper}>
-        {albums.map((museum, index) => (
+        {ALBUMS.map((museum, index) => (
           <Card
             index={index}
             mediaUrl={museum.mediaUrl}

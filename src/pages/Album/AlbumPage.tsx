@@ -1,14 +1,13 @@
-import React, { createRef, FC, useEffect } from "react";
+import React, { createRef, FC, useEffect, useState } from 'react'
 import s from "./album.module.scss";
-import { albumsPageT } from "../../types/albumsPageT";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { useActions } from "../../hooks/useActions";
-import AlbumLoadingPage from "./AlbumLoadingPage";
 import { Link } from "react-router-dom";
 import ArrowLeftIcon from "../../Components/svgComponents/ArrowLeftIcon";
 import { Grid } from "@mui/material";
 import styled from "styled-components";
 import { PageLoaderV2 } from '../../Components/PageLoaderV2'
+import { ALL_GROUPS } from '../../constants/albums'
+import { fetchAlbum } from '../../API/fetchAlbum'
+import { isMuseum } from '../../utils/group'
 
 const StyledGrid = styled(Grid)`
   position: fixed;
@@ -29,13 +28,19 @@ const StyledButton = styled.button`
   }
 `;
 
-const AlbumPage: FC<albumsPageT> = (props) => {
-  const { name } = props;
-  const { currentAlbum, loading, error, albums } = useTypedSelector((state) => state.albumsReducer);
-  const { fetchAlbumAC } = useActions();
+type Props = {
+  name: string
+}
 
-  const selectedAlbum = albums.filter((album) => album.name === name);
-  const { displayName, onMapsLink } = selectedAlbum[0];
+const AlbumPage: FC<Props> = ({ name }) => {
+  const [mediaArray, setMediaArray] = useState<string[]>([])
+  const [loading, setLoading] = useState(false)
+
+  const group = ALL_GROUPS.find((group) => group.name === name);
+  const displayName = group?.displayName
+  const onMapsLink = group?.onMapsLink
+  const isMuseumGroup = group && isMuseum(group)
+  const museumOnlineLink = isMuseumGroup ? group?.museumOnlineLink : undefined
 
   const ref = createRef<HTMLInputElement>();
 
@@ -49,7 +54,18 @@ const AlbumPage: FC<albumsPageT> = (props) => {
   };
 
   useEffect(() => {
-    fetchAlbumAC(name);
+    const fetchAndSetMedia = async () => {
+      try {
+        const media = await fetchAlbum(name)
+        if (!media) return Error
+
+        setMediaArray(media || [])
+      } catch (error) {
+        console.log('Error fetching media', error);
+      }
+    }
+
+    fetchAndSetMedia()
   }, []);
 
   // if (loading) return <AlbumLoadingPage displayName={displayName} />;
@@ -67,13 +83,24 @@ const AlbumPage: FC<albumsPageT> = (props) => {
           </Link>
         </Grid>
         <Grid item>
-          <a target="_blank" href={onMapsLink} rel="noreferrer">
-            <StyledButton>На карте</StyledButton>
-          </a>
+          <Grid container>
+            <Grid item>
+              <a target="_blank" href={onMapsLink} rel="noreferrer">
+                <StyledButton>На карте</StyledButton>
+              </a>
+            </Grid>
+            {museumOnlineLink && (
+              <Grid item>
+                <a target="_blank" href={museumOnlineLink} rel="noreferrer">
+                  <StyledButton>Посетить онлайн</StyledButton>
+                </a>
+              </Grid>
+            )}
+          </Grid>
         </Grid>
       </StyledGrid>
       <div className={s.photosWrapper}>
-        {currentAlbum.map((img) => (
+        {mediaArray.map((img) => (
           <img className={s.img} src={img} key={img} alt="" />
         ))}
       </div>

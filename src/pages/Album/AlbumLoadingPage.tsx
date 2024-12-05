@@ -1,9 +1,12 @@
 import React, { FC } from "react";
 import s from "./loadingPage.module.scss";
-import { loadingPageT } from "../../types/albumsPageT";
 
-const AlbumLoadingPage: FC<loadingPageT> = (props) => {
-  const { displayName } = props;
+type Props = {
+  displayName: string
+}
+
+const AlbumLoadingPage: FC<Props> = ({ displayName}) => {
+
   return (
     <div className={s.wrapper}>
       <div className={s.name}>{displayName}</div>

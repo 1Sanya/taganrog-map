@@ -12,7 +12,6 @@ import {
   KRASNIY_ROUTE,
   ROUND_HOUSE_ROUTE,
   ROWS_ROUTE,
-  SEARCH_ROUTE,
   SHMIDTA_ROUTE,
   STONE_1ROAD_ROUTE,
   STONE_2ROAD_ROUTE,
@@ -24,98 +23,92 @@ import {
 import { lazy } from "react";
 import Home from "../pages/Home/HomePage";
 
-const MuseumLazy = lazy(() => import("../pages/Album/MuseumPage"));
-const SearchLazy = lazy(() => import("../pages/Search/Search"));
-const Album = lazy(() => import("../pages/Album/AlbumPage"));
+const AlbumLazy = lazy(() => import("../pages/Album/AlbumPage"));
 
 export const routes = [
   {
-    path: SEARCH_ROUTE,
-    Element: SearchLazy,
-  },
-  {
     path: URBAN_MUSEUM_ROUTE,
-    Element: MuseumLazy,
+    Element: AlbumLazy,
   },
   {
     path: CHEHOV_HOUSE_ROUTE,
-    Element: MuseumLazy,
+    Element: AlbumLazy,
   },
   {
     path: CHEHOV_SHOP_ROUTE,
-    Element: MuseumLazy,
+    Element: AlbumLazy,
   },
   {
     path: ART_ROUTE,
-    Element: MuseumLazy,
+    Element: AlbumLazy,
   },
   {
     path: ALFERAKI_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: BOGUDONIA_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: SHMIDTA_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: ROUND_HOUSE_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: GRAVEYARD_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: TILE_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: GORKOGO_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: STONE_1ROAD_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: STONE_2ROAD_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: KRASNIY_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: ITALYANSKIY_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: EMBANKMENENT_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: VODOLECHEB_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: CVR_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: EUROPE_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: ROWS_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: GORKOGO_ROUTE,
-    Element: Album,
+    Element: AlbumLazy,
   },
   {
     path: "/",
